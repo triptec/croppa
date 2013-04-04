@@ -261,6 +261,9 @@ class Croppa {
 	// or a PhpThumb instance
 	static private function show($src, $path = null) {
 		
+		// If running from CLI, do nothing
+		if (php_sapi_name() == 'cli') throw new Exception('Show() cant be called from CLI');
+		
 		// Handle string paths
 		if (is_string($src)) {
 			$path = $src;
