@@ -136,6 +136,10 @@ class Croppa {
 			else $thumb->adaptiveResize($width, $height);                 // There is width and height, so crop
 		}
 		
+		$options = $thumb->getOptions();
+		$options['jpegQuality'] = self::$config['jpegQuality'];
+		$thumb->setOptions($options);
+		
 		// Save it to disk
 		$thumb->save($dst);
 		
