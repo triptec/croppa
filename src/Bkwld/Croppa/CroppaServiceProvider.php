@@ -33,7 +33,8 @@ class CroppaServiceProvider extends ServiceProvider {
 
 			// Increase memory limit, cause some images require a lot
 			// too resize
-			ini_set('memory_limit', '128M');
+			ini_set('memory_limit', self::$config['memory_limit']);
+
 			
 			// Pass Croppa the current URL
 			Croppa::handle_404(Request::path());
